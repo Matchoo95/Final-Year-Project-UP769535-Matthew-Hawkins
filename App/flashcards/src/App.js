@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from './Card/Card';
-import DrawButton from './DrawButton/DrawButton';
+import TryAgainLaterButton from './TryAgainLaterButton/TryAgainLaterButton';
+import CorrectButton from './CorrectButton/CorrectButton';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import { DB_CONFIG } from './config/Firebase/db_config';
+import { UserForm } from './Components/UserForm';
 
 class App extends Component {
   constructor(props){
@@ -50,6 +52,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        <UserForm />
+
         <div className="cardRow">
           <Card 
               id={this.state.currentCard.id}
@@ -60,7 +65,8 @@ class App extends Component {
           />
         </div>
         <div className="buttonRow">
-          <DrawButton drawCard={this.updateCard}/>
+          <TryAgainLaterButton newCard={this.updateCard}/>
+          <CorrectButton newCard={this.updateCard}/>
         </div>
       </div>
     );
