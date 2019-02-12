@@ -23,18 +23,14 @@ export class Confirm extends Component {
         <React.Fragment>
           <AppBar title="Confirm User Details" />
           <List>
-              <ListItem>
-                  primaryText="First Name"
-                  secondaryText={ firstName }
-              </ListItem>
-              <ListItem>
+              <ListItem primaryText="First Name"
+                  secondaryText={ firstName } />
+              <ListItem
                   primaryText="Last Name"
-                  secondaryText={ lastName }
-              </ListItem>
-              <ListItem>
+                  secondaryText={ lastName } />
+              <ListItem
                   primaryText="Email"
-                  secondaryText={ email }
-              </ListItem>
+                  secondaryText={ email } />
           </List>
 
           <br />

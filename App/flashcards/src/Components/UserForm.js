@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import FormUserDetails from './FormUserDetails';
 import Confirm from './Confirm';
+import Success from './Success';
+import Flashcard from './Flashcard';
 
 
 export class UserForm extends Component {
@@ -49,12 +51,14 @@ export class UserForm extends Component {
                 return (
                     <Confirm
                         nextStep ={this.nextStep}
-                        previousStep={this.nextStep}
+                        previousStep={this.previousStep}
                         values={values}
                     />
                 )
             case 3:
-                return <h1>Success</h1>
+                return <Success />;
+            case 4:
+                return <Flashcard />;
             default:
             // do nothing
         }
