@@ -4,14 +4,14 @@
             "id": 1,
             "jp": "これはペンです。",
             "reading": "これはぺんです。",
-            "meaning": "これ: This /n は: Grammatical particle defining the subhject of the sentence. /n ペン: Pen /n です: Polite sentence ender.",
+            "meaning": "これ: This は: Grammatical particle defining the subhject of the sentence. ペン: Pen です: Polite sentence ender.",
             "en": "This is a pen."            
         },
         {
             "id": 2,
             "jp": "これは猫です。",
             "reading": "これはねこです。",
-            "meaning": "これ: This /n は: Grammatical particle defining the subhject of the sentence. /n 猫(ねこ): Cat /n です: Polite sentence ender.",
+            "meaning": "これ: This は: Grammatical particle defining the subhject of the sentence. 猫(ねこ): Cat です: Polite sentence ender.",
             "en": "This is a cat."     
         }
     ]

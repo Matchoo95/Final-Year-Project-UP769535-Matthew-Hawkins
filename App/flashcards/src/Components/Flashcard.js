@@ -6,6 +6,9 @@ import CorrectButton from '../CorrectButton/CorrectButton';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import { DB_CONFIG } from '../config/Firebase/db_config';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Flashcard extends Component {
   constructor(props){
@@ -64,7 +67,7 @@ class Flashcard extends Component {
           <TryAgainLaterButton newCard={this.updateCard}/>
           <CorrectButton newCard={this.updateCard}/>
         </div>
-      </div>
+      </div>      
     );
   }
 }
