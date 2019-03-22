@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import '../App.css';
 import Card from '../Card/Card';
 import TryAgainLaterButton from '../TryAgainLaterButton/TryAgainLaterButton';
 import CorrectButton from '../CorrectButton/CorrectButton';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import { DB_CONFIG } from '../config/Firebase/db_config';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
+
 
 class Flashcard extends Component {
   constructor(props){

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import { List, ListItem } from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -21,7 +20,7 @@ export class Confirm extends Component {
     return (
       <MuiThemeProvider>
         <React.Fragment>
-          <AppBar title="Confirm User Details" />
+          <h1>Confirm User Details</h1>
           <List>
               <ListItem primaryText="First Name"
                   secondaryText={ firstName } />
@@ -46,7 +45,7 @@ export class Confirm extends Component {
             label="Back"
             primary={false}
             style={styles.button}
-            onClick={this.continue}
+            onClick={this.previous}
           />
         </React.Fragment>
       </MuiThemeProvider>

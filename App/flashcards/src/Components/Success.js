@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 
 
@@ -22,12 +21,11 @@ export class Success extends Component {
       return (
       <MuiThemeProvider>
         <React.Fragment>
-            <AppBar title="Account Created Successfully" />
-             <h1>Success!</h1>
+            <h1>Account Created Successfully!</h1>
             <p>Your account has been created but before you can
                  use it you will need to verify your account.
                   An email has been sent to you with further instructions.
-             </p>
+            </p>
 
 
             <RaisedButton
