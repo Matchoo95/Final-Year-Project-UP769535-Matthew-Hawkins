@@ -28,8 +28,7 @@ function ButtonAppBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             JP Flashcards
           </Typography>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Logout</Button>         
+          <Button color="inherit">Login</Button>        
           <Button href="/home">
             Home
           </Button>
