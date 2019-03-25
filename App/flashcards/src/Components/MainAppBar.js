@@ -29,7 +29,13 @@ function ButtonAppBar(props) {
             JP Flashcards
           </Typography>
           <Button color="inherit">Login</Button>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit">Logout</Button>         
+          <Button href="/home">
+            Home
+          </Button>
+          <Button href="/register">
+            Register
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

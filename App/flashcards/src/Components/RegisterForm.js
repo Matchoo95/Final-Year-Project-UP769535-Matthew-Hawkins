@@ -5,7 +5,7 @@ import Success from './Success';
 import MemberHome from './MemberHome';
 
 
-export class UserForm extends Component {
+export class RegisterForm extends Component {
     state = {
         step: 1,
         firstName: '',
@@ -69,4 +69,4 @@ export class UserForm extends Component {
     }   
 }
 
-export default UserForm
+export default RegisterForm

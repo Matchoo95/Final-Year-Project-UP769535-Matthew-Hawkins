@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { UserForm } from './Components/UserForm';
+import { RegisterForm } from './Components/RegisterForm';
+import { Home } from './Components/Home';
 import MainAppBar from './Components/MainAppBar';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import {
@@ -19,11 +20,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MainAppBar />
-        <UserForm />
+        <MainAppBar />        
         <Router history={hist}>
           <Switch>
             <Route path={'/studysession'} component={Flashcard}/>
+          </Switch>
+          <Switch>
+            <Route path={'/register'} component={RegisterForm}/>
+          </Switch>
+          <Switch>
+            <Route path={'/home'} component={Home}/>
           </Switch>
         </Router> 
       </div>
