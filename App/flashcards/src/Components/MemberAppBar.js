@@ -5,9 +5,6 @@ import {
   AppBar, Toolbar, Typography, Button, MenuList, MenuItem 
 } from '@material-ui/core';
 import '../Styles/HorizontalMenu.css';
-import { 
-  Router, Route, Switch, Redirect, Link 
-} from 'react-router-dom';
 
 function SimpleAppBar(props) {
   const { classes } = props;
