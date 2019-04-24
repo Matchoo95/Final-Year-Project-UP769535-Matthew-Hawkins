@@ -5,7 +5,7 @@ import CorrectButton from '../CorrectButton/CorrectButton';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import { DB_CONFIG } from '../config/Firebase/db_config';
-
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Flashcard extends Component {
   constructor(props){
@@ -28,6 +28,11 @@ class Flashcard extends Component {
         reading: snap.val().reading,
         meaning: snap.val().meaning,
         en: snap.val().en,
+        due: snap.val().dueDate,
+        lastReviewed: snap.val().dateLastReviewed,
+        timesCorrectInRow: snap.val().consecutiveTimesCorrect, 
+        difficultyRating: snap.val().difficulty,
+        timeBetweenReviews: snap.val().daysBetweenReviews // In days
       })
       this.setState({
         cards: currentCards,
@@ -36,9 +41,33 @@ class Flashcard extends Component {
     })    
   }
 
-  getRandomCard(currentCards){
-    var card = currentCards[Math.floor(Math.random() * currentCards.length)]
-    return(card);
+  getDate(){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; // Jan is 0
+    var yyyy = today.getFullYear();
+
+    if(dd < 10) {
+      dd = '0' + dd
+    }
+
+    if(mm < 10) {
+      mm = '0' + mm
+    }
+
+    today = dd + '/' + mm + '/' + yyyy;
+    return(today);
+  }
+
+  getRandomCard(currentCards, today){
+    while(currentCards.length > 0){
+      if(currentCards.due === this.getDate(today)) {
+        var card = currentCards[Math.floor(Math.random() * currentCards.length)]
+        return(card);
+      } else {
+        return(<p>No more cards.</p>);
+      }
+    }
   }
 
   updateCard(){
@@ -66,6 +95,12 @@ class Flashcard extends Component {
         </div>
       </div>      
     );
+  }
+}
+
+const styles = {
+  button: {
+    margin: 10
   }
 }
 
