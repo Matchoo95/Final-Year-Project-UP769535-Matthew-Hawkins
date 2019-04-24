@@ -5,6 +5,7 @@ import CorrectButton from '../CorrectButton/CorrectButton';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import { DB_CONFIG } from '../config/Firebase/db_config';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Flashcard extends Component {
   constructor(props){
@@ -54,7 +55,7 @@ class Flashcard extends Component {
       mm = '0' + mm
     }
 
-    today = mm + '/' + dd + '/' + yyyy;
+    today = dd + '/' + mm + '/' + yyyy;
     return(today);
   }
 
@@ -94,6 +95,12 @@ class Flashcard extends Component {
         </div>
       </div>      
     );
+  }
+}
+
+const styles = {
+  button: {
+    margin: 10
   }
 }
 
