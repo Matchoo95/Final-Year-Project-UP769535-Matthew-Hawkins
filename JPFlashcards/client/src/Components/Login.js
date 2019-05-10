@@ -13,7 +13,7 @@ export class Login extends Component {
               <input placeholder="Username" name="login_username"></input>
               <br />
               <h3>Password</h3>
-              <input placeholder="Password" name="login_password"></input>
+              <input type="password" placeholder="Password" name="login_password"></input>
               <br />
               <button>Submit</button>
           </form>

@@ -21,7 +21,7 @@ export class Confirmation extends Component {
               <input value={ username } name="create_username"></input>
               <br />
               <h3>Password</h3>
-              <input value={ password } name="create_password"></input>
+              <input value={ password } type="password" name="create_password"></input>
               <br />
               <h3>Email</h3>
               <input value={ email } name="create_email"></input>

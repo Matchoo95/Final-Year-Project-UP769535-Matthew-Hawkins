@@ -28,7 +28,7 @@ export class UserDetails extends Component {
 
           <br/>
 
-          <TextField
+          <TextField type="password"
             hintText="Enter Your Desired Password"
             floatingLabelText="Password"
             onChange={handleChange('password')}
