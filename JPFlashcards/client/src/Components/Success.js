@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 export class Success extends Component {
   render() {
       return (
+        // default study home page
       <MuiThemeProvider>
         <React.Fragment>
             <h1>Account Created Successfully!</h1>

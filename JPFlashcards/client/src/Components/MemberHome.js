@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MemberAppBar from './MemberAppBar';
-import Flashcard from './Flashcard';
 
 export class MemberHome extends Component {
+  // home page for signed in users
   render() {
       return (
       <MuiThemeProvider>

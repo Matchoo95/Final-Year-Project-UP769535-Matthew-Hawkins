@@ -13,11 +13,13 @@ import {
 } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
+// save history for use with routes
 const hist = createBrowserHistory();
 
 class App extends Component {
   render() {
     return (
+      // start front end and assign route paths
       <div className="App">
         <MainAppBar />   
         <Router history={hist}>
@@ -29,7 +31,6 @@ class App extends Component {
             <Route path={'/login'} component={Login}/>
             <Route path={'/memberhome'} component={MemberHome}/>
             <Route path={'/addflashcard'} component={AddFlashcard}/>
-
         </Router> 
       </div>
     );

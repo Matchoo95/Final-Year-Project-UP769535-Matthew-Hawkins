@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { List, ListItem } from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 
 export class Confirmation extends Component {  
+  // handle event to go back a step when raised button is pressed
   previous = e => {
     e.preventDefault();
     this.props.previousStep();
   }
-  
+  // render confirmation form and send data to server
   render() {
     const { values: { username, password, email } } = this.props;
     return (
@@ -43,6 +43,7 @@ export class Confirmation extends Component {
   }
 }
 
+// raised button styling
 const styles = {
   button: {
     margin: 10

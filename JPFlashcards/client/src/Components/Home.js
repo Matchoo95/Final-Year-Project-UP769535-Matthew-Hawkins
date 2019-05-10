@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export class Home extends Component {  
   render() {
+    // simple home page with grey box
     return (
       <MuiThemeProvider>
         <React.Fragment>

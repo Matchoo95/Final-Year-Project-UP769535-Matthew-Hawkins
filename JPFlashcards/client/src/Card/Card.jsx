@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css';
 
+// create card
 const Card = (props) => (
     <div className="card-container">
         <div className="card">

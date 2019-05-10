@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
-  AppBar, Toolbar, Typography, Button, MenuList, MenuItem 
+  AppBar, Toolbar, Button,
 } from '@material-ui/core';
 import '../Styles/HorizontalMenu.css';
 
+// nav bar for member's only pages
 function SimpleAppBar(props) {
   const { classes } = props;
   return (

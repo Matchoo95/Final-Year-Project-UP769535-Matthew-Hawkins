@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 export class Login extends Component {  
   render() {
     return (
+      // login form which sends credentials to back-end
       <MuiThemeProvider>
         <React.Fragment>
           <h1>Enter Your Username and Password to Login</h1>

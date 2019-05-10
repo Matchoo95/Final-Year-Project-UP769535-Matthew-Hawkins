@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MemberAppBar from './MemberAppBar';
 
+// add new flashcard to database form
 export class AddFlashcard extends Component {  
   render() {
     return (
+      // import themes, react fragment and nav bar
       <MuiThemeProvider>
         <React.Fragment>
             <MemberAppBar />
+          
           <h1>Fill in the sections to add a new flashcard to your collection!</h1>
-
           <form action="/createnewflashcard" method="POST">
               <h3>Japanese Text</h3>
               <textarea rows="4" cols="50" placeholder="Japanese" name="add_flashcard_japanese"></textarea >

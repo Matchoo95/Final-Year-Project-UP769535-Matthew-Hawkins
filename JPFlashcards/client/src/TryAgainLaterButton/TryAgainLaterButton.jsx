@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import '../Styles/ButtonStyles.css';
-import RaisedButton from 'material-ui/RaisedButton';
 
+// create try again button
 class TryAgainLaterButton extends Component{
     constructor(props){
         super(props);
         this.newCard = this.newCard.bind(this);
     }
-
     newCard(){
         this.props.newCard();
     }
-
+    // render button
     render(props){
         return(
             <div className="buttonContainer">

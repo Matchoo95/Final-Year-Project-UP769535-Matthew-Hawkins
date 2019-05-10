@@ -7,6 +7,7 @@ import MemberAppBar from './MemberAppBar';
 
 
 class Flashcard extends Component {
+  // constructor
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +19,7 @@ class Flashcard extends Component {
   }; 
   componentWillMount(){
     const currentCards = this.state.cards;
+    // push flashcards from db onto currentCards
     currentCards.push({
       id: this.state.currentCard.idUser,
       jp: this.state.currentCard.japaneseText,
@@ -25,24 +27,29 @@ class Flashcard extends Component {
       meaning: this.state.currentCard.meaningText,
       en: this.state.currentCard.englishText    
     });
+    // get flashcards
     fetch("http://localhost:5000/getalljpflashcards", {
       method: "POST",
       body: currentCards
     })
+    // return response as json
     .then(res => {
       return res.json();
     })
     .then(responseJson => {
       console.log(responseJson)
+      // set state
       this.setState(() => ({
         cards: responseJson,
         currentCard: this.getRandomCard(responseJson)
       }));       
     })
+    // catch any errors
     .catch(err => {
       console.log("Error: " + err);
     }); 
   }
+  // get 1 random card
   getRandomCard(currentCard){
     var randomIndex = Math.floor(Math.random() * currentCard.length);
     var card = currentCard[randomIndex];
@@ -53,7 +60,7 @@ class Flashcard extends Component {
     return(card);
   }
 
-  // called by user on button click
+  // update state
   updateCard(){
     this.setState({loading: true},()=>{
       const currentCards = this.state.cards;
@@ -64,14 +71,14 @@ class Flashcard extends Component {
   }
 
   render() {
+    // render a Card with the current card's properties and flashcard animation
     return (      
     <MuiThemeProvider>
       <React.Fragment>
         <MemberAppBar />
           <div className="Flashcard">
             <div className="cardRow">
-            { !this.state.loading ?
-            
+            { !this.state.loading ?            
               <Card 
                 jp={this.state.currentCard.japaneseText}
                 reading={this.state.currentCard.readingText}

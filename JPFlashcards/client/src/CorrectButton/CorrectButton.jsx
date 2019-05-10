@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 
+// Create correct button for flashcard
 class CorrectButton extends Component{
     constructor(props){
         super(props);
         this.newCard = this.newCard.bind(this);
     }
-
     newCard(){
         this.props.newCard();
     }
-
+    // render button
     render(props){
         return(
             <div className="buttonContainer">

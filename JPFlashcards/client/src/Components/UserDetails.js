@@ -3,12 +3,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
+// user details form for user registration
 export class UserDetails extends Component {
+  // event listener for continue button
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
   }
-  
+  // render registration form and button
   render() {
     const { values, handleChange } = this.props;
     return (
