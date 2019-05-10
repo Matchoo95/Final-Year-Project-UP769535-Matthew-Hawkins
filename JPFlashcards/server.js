@@ -11,6 +11,12 @@ app.use(express.static('./client'));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 const pool = mysql.createPool({
     connectionLimit: 10,
     host     : 'localhost',
@@ -74,9 +80,9 @@ app.post('/createnewflashcard', (req, res) => {
 });
 
 // Get all japanese flashcards for review for a user
-app.get('/getalljpflashcards', (req, res) => { 
+app.post('/getalljpflashcards', (req, res) => { 
 //    const currentUser = req.body.add_flashcard_current_user;
-    const queryString = "SELECT * FROM japaneseflashcard WHERE nextReviewDate <= (?) AND FlashcardDeck_User_idUser = 3";    
+    const queryString = "SELECT * FROM japaneseflashcard WHERE nextReviewDate <= (?) AND FlashcardDeck_User_idUser = 1";    
     getDatabaseConnection().query(queryString, getDateAndTime(), (err, results, fields) => {
         if(err) {
             console.log("Failed to get flashcards: " + err);

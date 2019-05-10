@@ -9,54 +9,58 @@ import MemberAppBar from './MemberAppBar';
 class Flashcard extends Component {
   constructor(props) {
     super(props);
-    this.updateCard = this.updateCard.bind(this);
     this.state = {
       cards: [],
-      currentCard: {}    
+      currentCard: {},
+      loading: false,    
     };
-}; 
-
+    this.updateCard = this.updateCard.bind(this);
+  }; 
   componentWillMount(){
-    let data = {
-      id: this.state.currentCard.id,
-      jp: this.state.currentCard.jp,
-      reading: this.state.currentCard.reading,
-      meaning: this.state.currentCard.meaning,
-      en: this.state.currentCard.en      
-    };
-    fetch("/getalljpflashcards", {
+    const currentCards = this.state.cards;
+    currentCards.push({
+      id: this.state.currentCard.idUser,
+      jp: this.state.currentCard.japaneseText,
+      reading: this.state.currentCard.readingText,
+      meaning: this.state.currentCard.meaningText,
+      en: this.state.currentCard.englishText    
+    });
+    fetch("http://localhost:5000/getalljpflashcards", {
       method: "POST",
-      body: data
+      body: currentCards
     })
-      .then(response => {
-        return response.json();
-      })
-      .then(responseJson => {
-        this.setState(() => ({
-          cards: responseJson,
-          currentCard: this.getRandomCard(responseJson)
-        }));       
-      })
-      .catch(err => {
-        console.log("Error: " + err);
-      }); 
+    .then(res => {
+      return res.json();
+    })
+    .then(responseJson => {
+      console.log(responseJson)
+      this.setState(() => ({
+        cards: responseJson,
+        currentCard: this.getRandomCard(responseJson)
+      }));       
+    })
+    .catch(err => {
+      console.log("Error: " + err);
+    }); 
   }
-
-  getRandomCard(responseJson){
-    var randomIndex = Math.floor(Math.random() * responseJson.length);
-    var card = responseJson[randomIndex];
-    if(card === this.state.currentCard){
-      this.getRandomCard(responseJson)
+  getRandomCard(currentCard){
+    var randomIndex = Math.floor(Math.random() * currentCard.length);
+    var card = currentCard[randomIndex];
+    if(card === this.state.currentCard && currentCard.length > 1){
+      console.log(currentCard)
+      this.getRandomCard(currentCard)
     }
     return(card);
   }
 
+  // called by user on button click
   updateCard(){
-    console.log("NEW CARD");
- //   const currentCards = this.state.cards;
- //   this.setState({
- //     currentCard: this.getRandomCard(currentCards)
- //   })
+    this.setState({loading: true},()=>{
+      const currentCards = this.state.cards;
+      this.setState({loading: false,
+        currentCard: this.getRandomCard(currentCards)
+      },()=>{console.log(this.state.currentCard)})
+    })
   }
 
   render() {
@@ -66,12 +70,16 @@ class Flashcard extends Component {
         <MemberAppBar />
           <div className="Flashcard">
             <div className="cardRow">
+            { !this.state.loading ?
+            
               <Card 
-                jp={this.state.currentCard.jp}
-                reading={this.state.currentCard.reading}
-                meaning={this.state.currentCard.meaning}
-                en={this.state.currentCard.en}       
+                jp={this.state.currentCard.japaneseText}
+                reading={this.state.currentCard.readingText}
+                meaning={this.state.currentCard.meaningText}
+                en={this.state.currentCard.englishText}       
                 />
+                : null
+            }
               </div>
               <div className="buttonRow">
                 <TryAgainLaterButton newCard={this.updateCard}/>
